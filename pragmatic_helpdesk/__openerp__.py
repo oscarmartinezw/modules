@@ -31,8 +31,11 @@
 Implementa funcionalidades adicionales al módulo de helpdesk.
                     """,
     #"depends" : ['crm_claim','stock'],
-    "depends" : ['project_issue'],
-    "data" : [ 'views/view_helpdesk.xml'                   
+    "depends" : ['project_issue','calendar'],
+    "data" : [
+               'views/view_helpdesk.xml' ,
+               'views/ImpresionActaSeguimiento.xml' ,
+               'views/acta_seguimiento_report.xml'                   
         ],
     "demo" : [],
     "installable": True,

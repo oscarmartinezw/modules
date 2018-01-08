@@ -2,7 +2,7 @@
 <openerp>
   <data>
       <report id="acta_seguimiento" model="calendar.event" string="Acta de seguimiento" report_type="qweb-pdf"
-        name="alfa_print.report_cotizacion" file="pragmatic_helpdesk.actaSeguimientoImpresion" attachment_use="True"/>
+        name="pragmatic_helpdesk.actaSeguimientoImpresion" file="pragmatic_helpdesk.impresionActaSeguimiento" attachment_use="True"/>
 
 	 <record id="paper_format_seguimiento" model="report.paperformat">
 	      <field name="name">Formato</field>
