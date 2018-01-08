@@ -32,7 +32,7 @@ Implementa funcionalidades adicionales al módulo de helpdesk
                     """,
     #"depends" : ['crm_claim','stock'],
     "depends" : ['crm_claim'],
-    "data" : [                    
+    "data" : [ 'views/view_helpdesk.xml'                   
         ],
     "demo" : [],
     "installable": True,

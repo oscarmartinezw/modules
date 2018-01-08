@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<openerp>
+	<data>
+	
+			<record model="ir.ui.view" id="pragmatic_project_issue_form_view">
+			<field name="name">incidencias_form_view</field>
+			<field name="model">project.issue</field>
+			<field name="inherit_id" ref="project_issue.project_issue_form_view" />
+			<field name="arch" type="xml">
+				
+				<xpath expr="//field [@name='user_id']" position="after">
+
+							<field name="create_date" />
+							<field name="date_deadline" />
+							<field name="dias_limite" />
+
+				</xpath>
+
+			</field>
+		</record>
+	
+	
+	
+			<record model="ir.ui.view" id="pragmatic_project_issue_tree_view">
+			<field name="name">incidencias_form_view</field>
+			<field name="model">project.issue</field>
+			<field name="inherit_id" ref="project_issue.project_issue_tree_view" />
+			<field name="arch" type="xml">
+				
+				<xpath expr="//field [@name='create_date']" position="after">
+							<field name="date_deadline" />
+							<field name="dias_limite" />
+
+				</xpath>
+
+			</field>
+		</record>
+		
+	
+	
+	
+	
+		<!--  record model="ir.ui.view" id="pragmatic_calim_form_view">
+			<field name="name">reclamos_form_view</field>
+			<field name="model">crm.claim</field>
+			<field name="inherit_id" ref="crm_claim.crm_case_claims_form_view" />
+			<field name="arch" type="xml">
+				
+				<xpath expr="//page" position="after">
+					<page string="Tareas">
+						<group name="group_left" col="2">
+							<field name="project_task_ids" />
+						
+						</group>
+					</page>
+				</xpath>
+
+			</field>
+		</record -->
+
+
+
+
+		<!--  record model="ir.ui.view" id="crm_case_claims_tree_view">
+			<field name="name">CRM - Claims Tree</field>
+			<field name="model">crm.claim</field>
+			<field name="arch" type="xml">
+				<tree string="Claims" default_order="date desc">
+					<field name="name" />
+					<field name="partner_id" />
+					<field name="user_id" />
+					<field name="date" />
+					<field name="stage_id" />
+					<field name="date_action_next" />
+					<field name="action_next" />
+					<field name="categ_id" string="Type" />
+					<field name="date_deadline" invisible="1" />
+					<field name="date_closed" invisible="1" />
+				</tree>
+			</field>
+		</record>
+
+
+		<record model="ir.ui.view" id="servitrans.reclamos_view_search">
+			<field name="name">Quejas y reclamos view search</field>
+			<field name="model">crm.claim</field>
+			<field name="type">search</field>
+			<field name="inherit_id" ref="crm_claim.view_crm_case_claims_filter" />
+			<field name="arch" type="xml">
+				<xpath expr="//field [@name='name']" position="before">
+					<field name="numero_identificacion" />
+				</xpath>
+			</field>
+		</record -->
+
+
+	</data>
+</openerp>
