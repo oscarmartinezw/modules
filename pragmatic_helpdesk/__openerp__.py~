@@ -28,11 +28,11 @@
     
     "licence" : "Other proprietary",
     "description": """
-Implementa funcionalidades adicionales al módulo de helpdesk.
+Implementa funcionalidades adicionales al módulo de helpdesk
                     """,
     #"depends" : ['crm_claim','stock'],
     "depends" : ['crm_claim'],
-    "data" : [ 'views/view_helpdesk.xml'                   
+    "data" : [                    
         ],
     "demo" : [],
     "installable": True,
