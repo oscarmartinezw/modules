@@ -16,7 +16,7 @@
           <table width="1200" style="vertical-align:middle; font-family: Arial, Helvetica, sans-serif;">
             <tr style="text-align:left; vertical-align:middle;">
               <td style="text-align:left; vertical-align:middle;">
-                <span itemprop="image" t-field="o.company_id.encabezado" t-field-options='{"widget": "image", "class": "oe_avatar"}' />
+                <!--  span itemprop="image" t-field="o.company_id.encabezado" t-field-options='{"widget": "image", "class": "oe_avatar"}' / -->
               </td>
             </tr>
  	  </table>	

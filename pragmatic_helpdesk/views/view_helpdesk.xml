@@ -53,22 +53,21 @@
 		</record>
 
 
-		<!--  record model="ir.ui.view" id="pragmatic_project_view_kanban">
+		<record model="ir.ui.view" id="pragmatic_project_view_kanban">
 			<field name="name">project_kanban_view</field>
 			<field name="model">project.project</field>
 			<field name="inherit_id" ref="project.view_project_kanban" />
 			<field name="arch" type="xml">
-				
-			<field name="use_issues" position="after">
-                <field name="use_meetings"/>
-                <field name="meeting_ids" invisible="1"/>
-                <field name="meeting_needaction_count" invisible="1"/>
-            </field>
+                <field name="use_tasks" position="after">
+                	<field name="use_meetings"/>
+                	<field name="meeting_ids" invisible="1"/>
+                	<field name="meeting_needaction_count" invisible="1"/>
+                </field>
             <xpath expr="//div/a[contains(@class, 'o_project_kanban_box')]" position="after">
-                <a t-if="record.use_meetings.raw_value" class="o_project_kanban_box" name="213" type="action">
+                <a t-if="record.use_meetings.raw_value" class="o_project_kanban_box" name="2131" type="action">
                     <span class="o_value"><t t-raw="record.meeting_ids.raw_value.length"/></span>
-                    <span class="o_label"><field name="label_meetings"/></span>
-                    <a t-if="record.meeting_needaction_count.raw_value" class="o_needaction" name="213" type="action" context="{'search_default_message_needaction': 1}">
+                    <span class="o_label"><field name="label_meeting"/></span>
+                    <a t-if="record.meeting_needaction_count.raw_value" class="o_needaction" name="2131" type="action" context="{'search_default_message_needaction': 1}">
                         <t t-esc="record.meeting_needaction_count.raw_value"/>
                     </a>
                 </a>
@@ -76,16 +75,81 @@
 
             <xpath expr="//div[contains(@class, 'o_kanban_manage_reports')]" position="inside">
                 <div>
-                    <a name="218" type="action">Reuniones</a>
+                    <a name="2181" type="action">Reuniones</a>
                 </div>
             </xpath>
 
+        
 			</field>
-		</record -->	
+		</record>	
 	
 	
 	
 	
+	
+	
+	
+			<record model="ir.ui.view" id="pragmatic_project_view_form">
+			<field name="name">project_form_view</field>
+			<field name="model">project.project</field>
+			<field name="inherit_id" ref="project_issue.view_project_form_inherited" />
+			<field name="arch" type="xml">
+                <xpath expr="//field[@name=&quot;use_tasks&quot;]" position="attributes">
+                    <attribute name="on_change">on_change_use_tasks_or_issues(use_tasks, use_issues, use_meetings)</attribute>
+                </xpath>
+                 <xpath expr="//field[@name=&quot;use_issues&quot;]" position="attributes">
+                    <attribute name="on_change">on_change_use_tasks_or_issues(use_tasks, use_issues, use_meetings)</attribute>
+                </xpath>
+                <xpath expr="//div[@name=&quot;options_active&quot;]" position="attributes">
+                    <attribute name="invisible">0</attribute>
+                </xpath>
+                <xpath expr="//div[@name=&quot;options_active&quot;]" position="inside">
+                    <div>
+                        <field name="use_meetings" class="oe_inline" string="Usar reuniones" on_change="on_change_use_tasks_or_issues(use_tasks, use_issues, use_meetings)"/>
+                        <label for="use_meetings" class="oe_inline"/>
+                        <span attrs="{'invisible':[('use_meetings', '=', False)]}">as </span>
+                        <field name="label_meeting" class="oe_inline oe_input_align" attrs="{'invisible': [('use_meetings', '=', False)]}"/>
+                    </div>
+                </xpath>
+                <div name="button_box" position="inside">
+                    <button class="oe_stat_button" type="action" attrs="{'invisible':[('use_meetings','=', False)]}" name="2131" icon="fa-bug">
+                        <field string="Reuniones" name="meeting_count" widget="statinfo" options="{'label_field': 'label_meeting'}"/>
+                    </button>
+                </div>
+                <xpath expr="//field[@name=&quot;use_tasks&quot;]" position="attributes">
+                    <attribute name="attrs">{'on_change': 'on_change_use_tasks_or_issues(use_tasks, use_issues, use_meetings)'}</attribute>
+                </xpath>
+			</field>
+		</record>	
+	
+	
+			<record model="ir.ui.view" id="pragmatic_calendar_event_form">
+			<field name="name">calendar_kanban_view</field>
+			<field name="model">calendar.event</field>
+			<field name="inherit_id" ref="calendar.view_calendar_event_form" />
+			<field name="arch" type="xml">
+			<xpath expr="//page" position="after">
+			   <page string="Compromisos">
+			   <field name="project_id"/>
+                <field name="task_ids"/>
+				</page>
+            </xpath>
+            <xpath expr="//label [@for='description']" position="replace">
+            </xpath>
+ 				<xpath expr="//field [@name='description']" position="replace">
+ 							<label for="goals"/>
+							<field name="goals" />
+							<label for="description"/>
+                            <field name="description"/>
+                            <label for="development"/>
+							<field name="development" />
+
+				</xpath>       
+			</field>
+		</record>	
+	
+	
+
 
 	
 	
