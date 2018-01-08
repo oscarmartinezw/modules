@@ -37,7 +37,56 @@
 		</record>
 		
 	
+		<record model="ir.ui.view" id="pragmatic_project_issue_tree_view">
+			<field name="name">incidencias_form_view</field>
+			<field name="model">project.issue</field>
+			<field name="inherit_id" ref="project_issue.project_issue_tree_view" />
+			<field name="arch" type="xml">
+				
+				<xpath expr="//field [@name='create_date']" position="after">
+							<field name="date_deadline" />
+							<field name="dias_limite" />
+
+				</xpath>
+
+			</field>
+		</record>
+
+
+		<!--  record model="ir.ui.view" id="pragmatic_project_view_kanban">
+			<field name="name">project_kanban_view</field>
+			<field name="model">project.project</field>
+			<field name="inherit_id" ref="project.view_project_kanban" />
+			<field name="arch" type="xml">
+				
+			<field name="use_issues" position="after">
+                <field name="use_meetings"/>
+                <field name="meeting_ids" invisible="1"/>
+                <field name="meeting_needaction_count" invisible="1"/>
+            </field>
+            <xpath expr="//div/a[contains(@class, 'o_project_kanban_box')]" position="after">
+                <a t-if="record.use_meetings.raw_value" class="o_project_kanban_box" name="213" type="action">
+                    <span class="o_value"><t t-raw="record.meeting_ids.raw_value.length"/></span>
+                    <span class="o_label"><field name="label_meetings"/></span>
+                    <a t-if="record.meeting_needaction_count.raw_value" class="o_needaction" name="213" type="action" context="{'search_default_message_needaction': 1}">
+                        <t t-esc="record.meeting_needaction_count.raw_value"/>
+                    </a>
+                </a>
+            </xpath>
+
+            <xpath expr="//div[contains(@class, 'o_kanban_manage_reports')]" position="inside">
+                <div>
+                    <a name="218" type="action">Reuniones</a>
+                </div>
+            </xpath>
+
+			</field>
+		</record -->	
 	
+	
+	
+	
+
 	
 	
 		<!--  record model="ir.ui.view" id="pragmatic_calim_form_view">

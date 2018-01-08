@@ -29,10 +29,28 @@ from openerp.exceptions import ValidationError
 
 _logger = logging.getLogger(__name__)
 
-# from openerp.osv import fields as fields_old
+class PragmaticProyecto(models.Model):
+    _inherit =  ['project.project']
+    
+    use_meetings = fields.Boolean('Reuniones')
+    meeting_ids = fields.One2many('calendar.event','project_id', string='Reuniones')
+    meeting_needaction_count = fields.Integer(string='Need action')
+
+
+
+
+class PragmaticReunion(models.Model):
+    _inherit =  ['calendar.event']
+    
+    project_id = fields.Many2one(string='Proyecto')
+    task_ids = fields.One2many('project.task','meeting_id','Compromisos')
+    goals = fields.Text(string='Objetivos')
+    development = fields.Text('Desarrollo')
+    description = fields.Text(string='Temas a tratar')
+    
 class PragmaticTarea(models.Model):
     _inherit =  ['project.task']
-    
+    meeting_id = fields.Many2one('calendar.event', string='Reunión')
 
 
 class PragmaticReclamo(models.Model):
