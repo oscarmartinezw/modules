@@ -2,7 +2,7 @@
 <openerp>
   <data>
     <template id="actaSeguimientoImpresion">
-      <t t-foreach="docs" t-as="o">Empaque
+      <t t-foreach="docs" t-as="o">
         <div class="header">
           <style type="text/css">
             pre {
