@@ -2,7 +2,7 @@
 <openerp>
   <data>
     <template id="actaSeguimientoImpresion">
-      <t t-foreach="docs" t-as="o">Empaque
+      <t t-foreach="docs" t-as="o">
         <div class="header">
           <style type="text/css">
             pre {
@@ -16,7 +16,7 @@
 <table width="1200" style="vertical-align:middle; font-family: Arial, Helvetica, sans-serif;">
             <tr style="text-align:left; vertical-align:middle;">
               <td style="text-align:left; vertical-align:middle;">
-                <!--  span itemprop="image" t-field="o.company_id.encabezado" t-field-options='{"widget": "image", "class": "oe_avatar"}' / -->
+                <span itemprop="image" t-field="o.company_id.encabezado" t-field-options='{"widget": "image", "class": "oe_avatar"}' />
               </td>
               <td style="text-align:right; vertical-align:middle;">
                 <table aling="right" style="font-family: Arial, Helvetica, sans-serif;">
