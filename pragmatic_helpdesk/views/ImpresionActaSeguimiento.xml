@@ -22,8 +22,8 @@
                 <table aling="right" style="font-family: Arial, Helvetica, sans-serif;">
                   <tr>
                     <td style="text-align:left; vertical-align:middle;">
-                      <h3><b>Orden de producción No.</b> <span t-field="" /></h3>
-                      <h3><span t-field="o.tipo_solicitud" /></h3>
+                      <h3><b>Acta de reunión</b> <!--  span t-field="" / --></h3>
+                      <h3><!--  span t-field="o.tipo_solicitud" / --></h3>
                     </td>    
                   </tr>
                 </table>
@@ -50,7 +50,7 @@
               </td>
             
               <td style="text-align:left; vertical-align:middle; ">
-              	 <b>ACTA DE SEGUIMIENTO Y CONTROL</b><span t-field="o." />         
+              	 <b>ACTA DE SEGUIMIENTO Y CONTROL</b><!-- span t-field="o." / -->         
               </td>
             </tr>  
             
@@ -71,7 +71,7 @@
 		<h4><b>Apoyo técnico</b></h4>
 	      </td>
 	      <td style="text-align:left; vertical-align:middle; border:1px solid black " width="600">
-		<h4><b>Relatora</b></h4>
+		<h4><b>Relator</b></h4>
 	      </td>	
 	    </tr>
 		
@@ -97,7 +97,7 @@
             </tr>
            </table>	
 
-	  </table>				
+			
 	</div>
 
         
